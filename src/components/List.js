@@ -4,22 +4,17 @@ import Task from "./Task";
 
 class List extends Component {
   
-  state = {
-    tasks: [
-      { value: "Do Some work", done: false },
-      { value: "Clean", done: true }
-    ]
-
-  }
-
   render() {
     return (
       <div className="list">
-        {this.state.tasks.map((task, index) => {
+        {this.props.tasks.map((task, index) => {
           return (
             <Task 
               task = {task}
+              index = {index}
               key = {index}
+              handleDropTask = {this.props.handleDropTask}
+              handleChangeTaskStatus = {this.props.handleChangeTaskStatus}
             /> 
           )
         })}
